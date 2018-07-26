@@ -1,0 +1,31 @@
+{
+  "name": "boole-js",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "src/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "tsc": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Julianhm9612/boole-js.git"
+  },
+  "keywords": [],
+  "author": "Julian Henao Marin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Julianhm9612/boole-js/issues"
+  },
+  "homepage": "https://github.com/Julianhm9612/boole-js#readme",
+  "devDependencies": {
+    "@types/jest": "^23.3.0",
+    "jest": "^23.4.1",
+    "ts-jest": "^23.0.1",
+    "typescript": "^2.9.2"
+  },
+  "dependencies": {
+    "spec": "^1.0.1"
+  }
+}
