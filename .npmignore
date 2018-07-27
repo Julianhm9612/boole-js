@@ -1,3 +1,5 @@
 tsconfig.json
 coverage
 src
+
+/.vscode
