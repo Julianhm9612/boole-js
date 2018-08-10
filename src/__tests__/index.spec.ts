@@ -1,4 +1,4 @@
-import { boole } from '../src/index';
+import { boole } from '../index';
 
 describe("boole", () => {
   it("Get inputs", () => {
