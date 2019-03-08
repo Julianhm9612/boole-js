@@ -1,6 +1,6 @@
 # **boole-js**
 
-Library to solve Boolean exercises 0️⃣1️⃣0️⃣1️⃣0️⃣1️⃣
+Library to solve Boolean exercises 0️⃣ 1️⃣ 0️⃣ 1️⃣ 0️⃣ 1️⃣
 
 ## Instructions to develop
 
