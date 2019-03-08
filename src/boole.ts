@@ -24,27 +24,20 @@ export function boole(paramGates: string): any {
             // ('((x^y)&(x^y))' || '').match(/[(]{1}[a-z]{1}[&|^]{1}[a-z]{1}[)]{1}|[&|^]{1}/g);
             // ('((x^y)&(x^y))&(x)' || '').match(/[(]+[a-z]{1}[&|^]{1}[a-z]{1}[)]+|[&|^]{1}/g);
 
-            // for (let entry of boole.inputs) {
-            //     console.log(entry);
-            // }
-
             /**
              * Fill array of entries
              */
-            // var n = ["x", "y", "z"].length;
-            // var rows = Math.pow(2, n);
-            // var table = Array.from({length: rows}, () => new Array(n));
-            // var blocks = Array.from({length: n}, (x, i) => Math.pow(2, i + 1)).reverse();
-            // var halfs = blocks.map(block => { return block/2 });
-            // for(var i=0;i < rows; i++){
-                // for(var j = 0; j < n; j++){
-                    // table[i][j] = (i%blocks[j]) < halfs[j] ? 0 : 1;
-                // }
-            // }
-            // console.log(table);
+            var rows = boole.inputsCount;
+            var table = Array.from({length: rows}, () => new Array(boole.inputs.length));
+            var blocks = Array.from({length: boole.inputs.length}, (x, i) => Math.pow(_constant, i + 1)).reverse();
+            var halfs = blocks.map(block => { return block/2 });
+            for(var i=0;i < rows; i++){
+                for(var j = 0; j < boole.inputs.length; j++){
+                    table[i][j] = (i%blocks[j]) < halfs[j] ? 0 : 1;
+                }
+            }
             
-            return boole.inputsCount;
-            // return eval(boole.gates);
+            return table;
         }else {
             return 'Error! The length of the';
         }

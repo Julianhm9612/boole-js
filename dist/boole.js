@@ -96,58 +96,60 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-var boole_1 = __webpack_require__(1);
-exports.boole = boole_1.boole;
-//# sourceMappingURL=index.js.map
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
+// CONCATENATED MODULE: ./.temp/boole.class.js
+class Boole {
+    constructor(gates, inputs, inputsCount) {
+        this.gates = gates;
+        this.inputs = inputs;
+        this.inputsCount = inputsCount;
+    }
+    calcInputs() {
+        this.inputs = this.gates.match(/([a-zA-Z]+)(?![\s\S]*\1)/g).sort() || [];
+    }
+    calcInputsCount(paramConstant) {
+        this.inputsCount = Math.pow(paramConstant, this.inputs.length) || 0;
+    }
+}
+//# sourceMappingURL=boole.class.js.map
+// CONCATENATED MODULE: ./.temp/boole.js
 
-var boole_class_1 = __webpack_require__(2);
-function boole(paramGates) {
-    var _constant = 2;
-    var errorTypeGates = (typeof paramGates == 'string') ? false : true;
+function boole_boole(paramGates) {
+    const _constant = 2;
+    let errorTypeGates = (typeof paramGates == 'string') ? false : true;
     if (!errorTypeGates) {
-        var boole_1 = new boole_class_1.Boole(paramGates, [], 0);
-        if (boole_1.gates.length == 4) {
+        let boole = new Boole(paramGates, [], 0);
+        if (boole.gates.length == 4) {
             return true;
         }
-        else if (boole_1.gates.length > 4) {
-            boole_1.calcInputs();
-            boole_1.calcInputsCount(_constant);
-            return boole_1.inputsCount;
+        else if (boole.gates.length > 4) {
+            boole.calcInputs();
+            boole.calcInputsCount(_constant);
+            var rows = boole.inputsCount;
+            var table = Array.from({ length: rows }, () => new Array(boole.inputs.length));
+            var blocks = Array.from({ length: boole.inputs.length }, (x, i) => Math.pow(_constant, i + 1)).reverse();
+            var halfs = blocks.map(block => { return block / 2; });
+            for (var i = 0; i < rows; i++) {
+                for (var j = 0; j < boole.inputs.length; j++) {
+                    table[i][j] = (i % blocks[j]) < halfs[j] ? 0 : 1;
+                }
+            }
+            return table;
         }
         else {
             return 'Error! The length of the';
         }
     }
 }
-exports.boole = boole;
 //# sourceMappingURL=boole.js.map
+// CONCATENATED MODULE: ./.temp/index.js
+/* concated harmony reexport */__webpack_require__.d(__webpack_exports__, "boole", function() { return boole_boole; });
 
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-var Boole = (function () {
-    function Boole(gates, inputs, inputsCount) {
-        this.gates = gates;
-        this.inputs = inputs;
-        this.inputsCount = inputsCount;
-    }
-    Boole.prototype.calcInputs = function () {
-        this.inputs = this.gates.match(/([a-zA-Z]+)(?![\s\S]*\1)/g).sort() || [];
-    };
-    Boole.prototype.calcInputsCount = function (paramConstant) {
-        this.inputsCount = Math.pow(paramConstant, this.inputs.length) || 0;
-    };
-    return Boole;
-})();
-exports.Boole = Boole;
-//# sourceMappingURL=boole.class.js.map
+//# sourceMappingURL=index.js.map
 
 /***/ })
 /******/ ]);
